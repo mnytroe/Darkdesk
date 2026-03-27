@@ -680,7 +680,7 @@ ticket-left-nav li[class*="active"] * {
   color: #e8edf4 !important;
 }
 
-/* Left-nav section headers ("Delt", "Standard") */
+/* Left-nav section headers (e.g. shared / standard view groups) */
 #freshworks-products-sidebar-container > [class*="header"],
 #freshworks-products-sidebar-container > [class*="section-title"],
 [class*="side-nav"] > [class*="header"],
@@ -1105,7 +1105,7 @@ ul.dropdown-menu,
 
 /* --- Nucleus modals --- */
 
-/* --- Button group split dropdowns (Videresend, Svar etc.) --- */
+/* --- Button group split dropdowns (Forward, Reply, etc.) --- */
 .btn-group .dropdown-menu,
 .btn-group ul,
 [class*="split"] .dropdown-menu,
@@ -1517,7 +1517,7 @@ img {
   padding: 2px 8px !important;
 }
 
-/* Overdue / Forfalt — red */
+/* Overdue — red (includes nb locale class substring "forfalt") */
 [class*="overdue"],
 [class*="forfalt"],
 [class*="status-label"][class*="overdue"],
@@ -1537,7 +1537,7 @@ img {
   padding: 2px 8px !important;
 }
 
-/* Customer responded / Kunde svart — blue */
+/* Customer responded — blue */
 [class*="status-label"][class*="customer"],
 [class*="label--"][class*="customer"],
 .label[style*="background-color: rgb(42, 163, 238)"],
@@ -1616,6 +1616,7 @@ img {
 [class*="detail-panel"],
 [class*="ticket-properties"],
 [class*="sidebar-detail"],
+/* Norwegian Freshdesk: "Properties" panel title may appear in class names */
 [class*="EGENSKAPER"],
 [class*="field-group"],
 [class*="field-value"],
@@ -1681,7 +1682,7 @@ img {
   border-color: #444d63 !important;
 }
 
-/* Summary input */
+/* Summary input (includes nb locale "sammendrag" in class names) */
 [class*="summary"],
 [class*="sammendrag"] {
   background-color: #323a4d !important;
@@ -1704,7 +1705,7 @@ img {
   border-color: #222838 !important;
 }
 
-/* "Vis flere samtaler" / "Show more conversations" block */
+/* "Show more conversations" block */
 .ticket-details__item--more,
 .ticket-details__item--more *,
 [class*="more-conversation"],
@@ -1772,14 +1773,14 @@ blockquote,
   color: #b8bfcc !important;
 }
 
-/* "Oppdater" button area */
+/* Primary update / submit button area */
 [class*="update-btn"],
 [class*="submit"] {
   background-color: #2d5a8a !important;
   color: #ffffff !important;
 }
 
-/* Forwarded / note indicators */
+/* Forwarded / note indicators (includes nb "videresendt" in class names) */
 [class*="forward"],
 [class*="videresendt"],
 [class*="note-type"] {

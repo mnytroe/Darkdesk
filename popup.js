@@ -13,5 +13,5 @@ toggle.addEventListener("change", () => {
 });
 
 function updateStatus(enabled) {
-  status.textContent = enabled ? "Aktiv på *.freshdesk.com" : "Deaktivert";
+  status.textContent = enabled ? "Active on *.freshdesk.com" : "Disabled";
 }
