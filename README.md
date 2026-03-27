@@ -1,6 +1,6 @@
 # DarkDesk
 
-Chrome extension (Manifest V3) that applies a dark theme to **Freshdesk** agent workspaces on `*.freshdesk.com`. No build step—plain HTML, CSS, and JavaScript.
+Chrome extension (Manifest V3) that applies a dark theme to **Freshdesk** agent workspaces on `*.freshdesk.com`. No build step: plain HTML, CSS, and JavaScript.
 
 ## Install (developer / unpacked)
 
@@ -26,8 +26,8 @@ See `CLAUDE.md` for a deeper architecture note (intended for AI / contributor co
 
 ## Permissions
 
-- **storage** — persist the enable/disable toggle  
-- **activeTab** — declared for typical extension patterns (primary work runs via the content script on matching URLs)
+- **storage**: persist the enable/disable toggle  
+- **activeTab**: declared for typical extension patterns (primary work runs via the content script on matching URLs)
 
 ## License
 
