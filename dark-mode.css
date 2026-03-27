@@ -1,0 +1,1878 @@
+/* DarkDesk */
+/*
+ * DarkDesk – Dark Mode for Freshdesk
+ *
+ * Overrides Freshworks Design System (DEW) CSS custom properties
+ * to transform dew-light-theme into dark mode.
+ *
+ * Palette — 3-tier elevation:
+ *   Canvas:    #111318  (body, deepest background)
+ *   Chrome:    #191d27  (sidebar, navbar, filter panel)
+ *   Surface:   #1e2230  (table rows, content areas)
+ *   Elevated:  #272d3e  (cards, conversations, hover)
+ *   Input:     #252c3e  (form fields)
+ *   Text:      #eceef2 / #b0b6c4
+ *   Links:     #7cc4f0  (icy blue)
+ *   Border:    #2a3040 / #363d50
+ */
+
+/* ============================================================
+   1. DEW Design System – Variable overrides (the main engine)
+   ============================================================ */
+
+:root,
+body,
+body.dew-light-theme,
+.dew-light-theme {
+  /* --- Fill / Background (blue-tinted) --- */
+  --color-fill-base: #111318 !important;
+  --color-fill-base-bold: #1e2230 !important;
+  --color-fill-surface: #1e2230 !important;
+  --color-fill-container: #232940 !important;
+  --color-fill-brand: #2d5a8a !important;
+  --color-fill-neutral: #2c3345 !important;
+  --color-fill-neutral-bold: #3a4258 !important;
+  --color-fill-neutral-mild: #2e3550 !important;
+
+  /* Semantic fills — keep hue, darken */
+  --color-fill-semantic-error: #5c2626 !important;
+  --color-fill-semantic-error-bold: #b33a3a !important;
+  --color-fill-semantic-error-bolder: #cc4444 !important;
+  --color-fill-semantic-error-mild: #3d1f1f !important;
+  --color-fill-semantic-error-mildest: #2e1a1a !important;
+
+  --color-fill-semantic-success: #1e3a2a !important;
+  --color-fill-semantic-success-bold: #2d8a5e !important;
+  --color-fill-semantic-success-mild: #1a3325 !important;
+  --color-fill-semantic-success-mildest: #162e20 !important;
+
+  --color-fill-semantic-warning: #3d3020 !important;
+  --color-fill-semantic-warning-bold: #b38a2d !important;
+  --color-fill-semantic-warning-mild: #332a1a !important;
+  --color-fill-semantic-warning-mildest: #2e2518 !important;
+
+  --color-fill-semantic-info: #1a2a3d !important;
+  --color-fill-semantic-info-bold: #2d6ab3 !important;
+  --color-fill-semantic-info-mild: #1a2533 !important;
+  --color-fill-semantic-info-mildest: #161f2e !important;
+
+  --color-fill-semantic-highlight: #2a1a3d !important;
+  --color-fill-semantic-highlight-bold: #7a4db3 !important;
+  --color-fill-semantic-highlight-mild: #251a33 !important;
+  --color-fill-semantic-highlight-mildest: #1f162e !important;
+
+  --color-fill-semantic-off: #323a4d !important;
+  --color-fill-semantic-on: #2d8a5e !important;
+
+  /* --- Text (higher contrast) --- */
+  --color-text-primary: #eceef2 !important;
+  --color-text-secondary: #b0b6c4 !important;
+  --color-text-placeholder: #7e8898 !important;
+  --color-text-disabled: #5e6678 !important;
+  --color-text-inverse: #111318 !important;
+  --color-text-brand: #7cc4f0 !important;
+  --color-text-semantic-error: #f07070 !important;
+  --color-text-semantic-success: #5cc090 !important;
+  --color-text-semantic-warning: #e0b050 !important;
+  --color-text-semantic-info: #5090d0 !important;
+  --color-text-semantic-highlight: #a070d0 !important;
+
+  /* --- Icons (brighter for visibility) --- */
+  --color-icon-primary: #d0d5e0 !important;
+  --color-icon-secondary: #8a90a0 !important;
+  --color-icon-disabled: #5e6678 !important;
+  --color-icon-inverse: #111318 !important;
+  --color-icon-selected: #7cc4f0 !important;
+  --color-icon-semantic-error: #f07070 !important;
+  --color-icon-semantic-success: #5cc090 !important;
+  --color-icon-semantic-warning: #e0b050 !important;
+  --color-icon-semantic-info: #5090d0 !important;
+  --color-icon-semantic-highlight: #a070d0 !important;
+
+  /* --- Borders / Boundaries (blue-tinted) --- */
+  --color-boundary-border: #363d50 !important;
+  --color-boundary-border-boldest: #4a5368 !important;
+  --color-boundary-border-inverse: #111318 !important;
+  --color-boundary-border-mild: #2a3040 !important;
+  --color-boundary-border-milder: #252b3a !important;
+  --color-boundary-border-mildest: #1e2430 !important;
+  --color-boundary-brand: #2d5a8a !important;
+  --color-boundary-divider: #252b3a !important;
+  --color-boundary-divider-mildest: #1e2430 !important;
+
+  --color-boundary-semantic-error: #7a3333 !important;
+  --color-boundary-semantic-error-bold: #cc4444 !important;
+  --color-boundary-semantic-error-mild: #5c2626 !important;
+  --color-boundary-semantic-error-mildest: #3d1f1f !important;
+  --color-boundary-semantic-success: #2d6644 !important;
+  --color-boundary-semantic-success-mild: #1e4a30 !important;
+  --color-boundary-semantic-success-mildest: #1a3325 !important;
+  --color-boundary-semantic-warning: #7a6622 !important;
+  --color-boundary-semantic-warning-mild: #5c4d1a !important;
+  --color-boundary-semantic-warning-mildest: #3d3318 !important;
+  --color-boundary-semantic-info: #2d5580 !important;
+  --color-boundary-semantic-info-mild: #1a3d5c !important;
+  --color-boundary-semantic-info-mildest: #1a2a3d !important;
+  --color-boundary-semantic-highlight: #5c3380 !important;
+  --color-boundary-semantic-highlight-mild: #3d1f5c !important;
+  --color-boundary-semantic-highlight-mildest: #2a1a3d !important;
+
+  /* --- Shadows (killed — use border separation in dark mode) --- */
+  --color-shadow: rgba(0, 0, 0, 0) !important;
+  --color-shadow-5: rgba(0, 0, 0, 0) !important;
+  --color-shadow-10: rgba(0, 0, 0, 0) !important;
+  --color-shadow-20: rgba(0, 0, 0, 0) !important;
+  --color-shadow-25: rgba(0, 0, 0, 0) !important;
+  --color-shadow-50: rgba(0, 0, 0, 0) !important;
+  --color-shadow-100: rgba(0, 0, 0, 0) !important;
+  --shadow-xs: none !important;
+  --shadow-sm: none !important;
+  --shadow-md: none !important;
+  --shadow-lg: none !important;
+  --shadow-xl: none !important;
+  --shadow-2xl: none !important;
+  --shadow-3xl: none !important;
+  --shadow-hover: none !important;
+  --shadow-clicked-button: none !important;
+  --shadow-dropdown-list: none !important;
+
+  /* --- Overlays --- */
+  --color-overlay-base: rgba(26, 26, 26, 0.8) !important;
+  --color-overlay-base-container: rgba(45, 45, 45, 0.9) !important;
+  --color-overlay-container: rgba(45, 45, 45, 0.8) !important;
+  --color-overlay-neutral: rgba(58, 58, 58, 0.8) !important;
+  --color-overlay-backdrop-bold: rgba(0, 0, 0, 0.7) !important;
+  --color-scrim: rgba(0, 0, 0, 0.6) !important;
+  --color-overlay-semantic-error: rgba(92, 38, 38, 0.8) !important;
+  --color-overlay-semantic-success: rgba(30, 58, 42, 0.8) !important;
+  --color-overlay-semantic-warning: rgba(61, 48, 32, 0.8) !important;
+  --color-overlay-semantic-info: rgba(26, 42, 61, 0.8) !important;
+  --color-overlay-semantic-info-light: rgba(26, 42, 61, 0.5) !important;
+  --color-overlay-semantic-highlight: rgba(42, 26, 61, 0.8) !important;
+
+  /* --- Tooltip --- */
+  --tooltip-background-color: #2c3345 !important;
+  --tooltip-color: #eceef2 !important;
+
+  /* --- Accent / Key color --- */
+  --color-key: #7cc4f0 !important;
+}
+
+
+/* --- Global shadow kill: replace all box-shadows with none ---
+   Dark mode uses border/bg differentiation, not shadow elevation. */
+
+*:not(.ember-basic-dropdown-content):not(.ember-power-select-dropdown):not([class*="dropdown-menu"]):not([class*="popover"]):not([class*="tooltip"]):not([class*="modal"]) {
+  box-shadow: none !important;
+}
+
+/* Keep subtle shadow ONLY on floating overlays (dropdowns, modals) */
+.ember-basic-dropdown-content,
+.ember-power-select-dropdown,
+[class*="dropdown-menu"],
+[class*="popover"],
+[class*="modal-content"] {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+
+/* ============================================================
+   1b. Tailwind + Freshdesk custom class overrides
+        (shadow DOM components: filter panel, left-nav, top-nav)
+   ============================================================ */
+
+/* --- Background overrides --- */
+
+.root-app {
+  background-color: #191d27 !important;
+  color: #eceef2 !important;
+}
+
+.bg-milk,
+.bg-white {
+  background-color: #191d27 !important;
+}
+
+/* Tailwind arbitrary value classes — use attribute selectors to avoid escape issues */
+[class*="bg-[#fff]"],
+[class*="bg-[#FFF]"],
+[class*="bg-[#ffffff]"],
+[class*="bg-[#FFFFFF]"] {
+  background-color: #191d27 !important;
+}
+
+[class*="bg-[#e5f2fd]"],
+[class*="bg-[#E5F2FD]"] {
+  background-color: #1a2a3d !important;
+}
+
+.bg-surface {
+  background-color: #191d27 !important;
+}
+
+.bg-base {
+  background-color: #111318 !important;
+}
+
+/* Filter panel specific: containers inside .root-app that hold form fields */
+.root-app [class*="filter"],
+.root-app [class*="panel"],
+.root-app [class*="content"] {
+  background-color: #191d27 !important;
+}
+
+.bg-none,
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.bg-snow,
+[class*="bg-snow"] {
+  background-color: #232940 !important;
+}
+
+[class*="bg-smoke"] {
+  background-color: #2a3040 !important;
+}
+
+[class*="bg-gray-50"],
+[class*="bg-gray-100"],
+[class*="bg-slate-50"],
+[class*="bg-slate-100"] {
+  background-color: #232940 !important;
+}
+
+/* Aggressive catch-all for any remaining white/light backgrounds in shadow DOM */
+:host {
+  background-color: #191d27 !important;
+  color: #eceef2 !important;
+  color-scheme: dark !important;
+}
+
+/* --- Text color overrides --- */
+
+.text-\[\#12344D\],
+.text-\[\#12344d\],
+.text-\[\#12334c\] {
+  color: #eceef2 !important;
+}
+
+.text-\[\#2c5cc5\],
+.text-\[\#2C5CC5\] {
+  color: #7cc4f0 !important;
+}
+
+.text-elephant,
+.text-elephant-900,
+.text-elephant-800,
+.text-elephant-700 {
+  color: #eceef2 !important;
+}
+
+.text-elephant-600,
+.text-elephant-500 {
+  color: #cdd2de !important;
+}
+
+.text-primary {
+  color: #eceef2 !important;
+}
+
+.text-secondary {
+  color: #b0b6c4 !important;
+}
+
+.text-smoke-700 {
+  color: #b8bfcc !important;
+}
+
+.text-smoke-600 {
+  color: #b0b8c8 !important;
+}
+
+.text-smoke-500,
+[class*="text-smoke"] {
+  color: #a0aabc !important;
+}
+
+.text-gray-700 {
+  color: #b8bfcc !important;
+}
+
+.text-gray-500 {
+  color: #b0b8c8 !important;
+}
+
+.text-azure {
+  color: #7cc4f0 !important;
+}
+
+.text-ink,
+[class*="text-ink"] {
+  color: #eceef2 !important;
+}
+
+.text-ash,
+[class*="text-ash"] {
+  color: #b0b6c4 !important;
+}
+
+.text-milk {
+  color: #ffffff !important;
+}
+
+.text-inverse {
+  color: #111318 !important;
+}
+
+.text-icon-primary {
+  color: #cdd2de !important;
+}
+
+/* --- Border overrides --- */
+
+.border-smoke-100,
+.border-t-smoke-50,
+[class*="border-smoke"] {
+  border-color: #363d50 !important;
+}
+
+.border-mild {
+  border-color: #323a4d !important;
+}
+
+.border-milder {
+  border-color: #2a3040 !important;
+}
+
+.border-mildest {
+  border-color: #1e2430 !important;
+}
+
+.border-\[\#2c5cc5\],
+.border-brand {
+  border-color: #4488bb !important;
+}
+
+/* --- Shadow overrides --- */
+
+.shadow-shadow5,
+.shadow-sm,
+.shadow-subtle {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* --- Form elements inside shadow DOM --- */
+
+.root-app select,
+.root-app input,
+.root-app textarea,
+input,
+textarea,
+select {
+  background-color: #252c3e !important;
+  color: #eceef2 !important;
+  border: 1px solid #3a4460 !important;
+  border-radius: 6px;
+}
+
+.root-app select:focus,
+.root-app input:focus,
+.root-app textarea:focus {
+  border-color: #7cc4f0 !important;
+  box-shadow: 0 0 0 2px rgba(110, 168, 220, 0.2) !important;
+  outline: none !important;
+}
+
+/* --- Filter panel: dropdown triggers and selected values --- */
+
+.root-app [class*="dropdown"] button,
+.root-app [class*="dropdown"] [role="button"],
+.root-app [class*="select"] button,
+.root-app [class*="select"] [role="button"],
+.root-app [class*="trigger"],
+.root-app [class*="combobox"],
+.root-app [role="combobox"],
+.root-app [role="listbox"] {
+  background-color: #252c3e !important;
+  color: #e4e7ee !important;
+  border: 1px solid #3a4460 !important;
+  border-radius: 6px !important;
+}
+
+.root-app [class*="dropdown"] button:hover,
+.root-app [class*="select"] button:hover,
+.root-app [class*="trigger"]:hover {
+  border-color: #4a5570 !important;
+}
+
+/* Selected values inside dropdowns — must be bright */
+.root-app [class*="selected"],
+.root-app [class*="chosen"],
+.root-app [class*="value"],
+.root-app [class*="option"][aria-selected="true"] {
+  color: #e4e7ee !important;
+}
+
+/* Filter panel: tag chips (e.g. "Bilglassportalen Grunndata", "IT") */
+.root-app [class*="tag"],
+.root-app [class*="chip"],
+.root-app [class*="token"],
+.root-app [class*="badge"],
+.root-app [class*="pill"],
+.root-app [class*="multi-value"],
+.root-app [class*="selected-item"],
+[class*="bg-[#e5f2fd]"] *,
+[class*="bg-[#e5f2fd]"] {
+  background-color: #1e3050 !important;
+  color: #c0d8f0 !important;
+  border-color: #2a4060 !important;
+}
+
+/* Close button (×) on tag chips */
+.root-app [class*="tag"] [class*="close"],
+.root-app [class*="tag"] [class*="remove"],
+.root-app [class*="tag"] button,
+.root-app [class*="chip"] button,
+.root-app [class*="token"] button {
+  color: #90a8c8 !important;
+  background-color: transparent !important;
+}
+
+/* Dropdown option list (open state) */
+.root-app [role="listbox"],
+.root-app [role="option"],
+.root-app [class*="option"],
+.root-app [class*="dropdown-list"],
+.root-app [class*="menu"] li,
+.root-app ul[class] li {
+  background-color: #1e2430 !important;
+  color: #e4e7ee !important;
+}
+
+.root-app [role="option"]:hover,
+.root-app [class*="option"]:hover,
+.root-app [class*="option"][class*="highlight"],
+.root-app [class*="option"][class*="active"] {
+  background-color: #2a3450 !important;
+}
+
+/* --- Generic text inside shadow DOM components --- */
+
+.root-app label,
+.root-app span,
+.root-app p,
+.root-app div,
+.root-app li,
+.root-app h1, .root-app h2, .root-app h3, .root-app h4, .root-app h5, .root-app h6 {
+  color: #e4e7ee !important;
+}
+
+.root-app a,
+a {
+  color: #7cc4f0 !important;
+}
+
+.root-app button,
+button {
+  color: #eceef2 !important;
+}
+
+/* --- Nuclear fallback: override any remaining light backgrounds in shadow DOM --- */
+
+:host {
+  background-color: #191d27 !important;
+  color: #eceef2 !important;
+  color-scheme: dark !important;
+}
+
+div, span, section, aside, main, article, nav, header, footer,
+ul, ol, li, form, fieldset, p, label, h1, h2, h3, h4, h5, h6 {
+  color: #dce0e8 !important;
+  border-color: #252b3a !important;
+}
+
+
+/* ============================================================
+   1c. Inline style overrides for .app-container brand colors
+   ============================================================ */
+
+.app-container {
+  background: #111318 !important;
+  --primary-bg-color: #191d27 !important;
+  --nav-bg-color: #191d27 !important;
+  --icon-normal-color: #98a0b8 !important;
+  --icon-hover-color: #e4e7ee !important;
+  --icon-active-border-color: #363d50 !important;
+  --icon-active-bg-color: rgba(44, 51, 69, 0.7) !important;
+}
+
+/* SVG icons — clean rendering on dark background */
+svg,
+svg path,
+svg circle,
+svg rect,
+svg polygon {
+  fill: currentColor;
+}
+
+#nucleus-navbar svg,
+.__app-navbar svg,
+[class*="search"] svg,
+[class*="notification"] svg,
+[class*="bell"] svg {
+  filter: brightness(1.3) !important;
+  opacity: 0.9 !important;
+}
+
+#nucleus-navbar .app-icon,
+.__app-navbar .app-icon,
+[class*="navbar"] .app-icon {
+  color: #b0b8c8 !important;
+  filter: none !important;
+}
+
+#nucleus-navbar .app-icon:hover,
+.__app-navbar .app-icon:hover,
+[class*="navbar"] .app-icon:hover {
+  color: #eceef2 !important;
+}
+
+[style*="background: #F3FCF9"],
+[style*="background: rgb(243, 252, 249)"],
+[style*="--primary-bg-color"] {
+  background: #111318 !important;
+}
+
+
+/* ============================================================
+   2. Structural overrides – elements that may not use variables
+   ============================================================ */
+
+html, body {
+  background-color: #111318 !important;
+  color: #eceef2 !important;
+  color-scheme: dark !important;
+}
+
+/* App shell */
+.app-container,
+.app-main-wrapper {
+  background-color: #111318 !important;
+}
+
+/* --- Top navigation bar (darkest chrome) --- */
+
+#nucleus-navbar,
+#nucleus-navbar.lighter,
+.__app-navbar {
+  background-color: #191d27 !important;
+  border-bottom: 1px solid #1c2030 !important;
+}
+
+#nucleus-header,
+.navbar-header {
+  background-color: #191d27 !important;
+}
+
+#navbar-body,
+.navbar-body {
+  background-color: #191d27 !important;
+}
+
+.navbar-addon-widgets {
+  background-color: #191d27 !important;
+}
+
+#nucleus-navbar *,
+.__app-navbar * {
+  color: #c0c8d8 !important;
+  fill: #c0c8d8 !important;
+}
+
+/* --- Ticket list module (content layer) --- */
+
+[class*="__module-tickets"],
+[class*="tickets-list"],
+.inbox-view {
+  background-color: #111318 !important;
+}
+
+/* --- Left sidebar (same level as navbar) --- */
+
+[class*="sidebar"],
+[class*="side-nav"],
+.side-nav,
+#freshworks-products-sidebar-container {
+  background-color: #191d27 !important;
+  border-right-color: #1c2030 !important;
+}
+
+[class*="sidebar"] *,
+.side-nav * {
+  color: #b0b8c8 !important;
+}
+
+/* --- Left-nav view list: remove box-in-a-box effect ---
+   SCOPED to left navigation only — avoids ticket detail right sidebar */
+
+#freshworks-products-sidebar-container ul,
+#freshworks-products-sidebar-container ol,
+#freshworks-products-sidebar-container [class*="list"],
+#freshworks-products-sidebar-container [class*="views"],
+[class*="side-nav"] ul,
+[class*="side-nav"] ol,
+[class*="side-nav"] [class*="list"],
+[class*="side-nav"] [class*="views"],
+ticket-left-nav ul,
+ticket-left-nav ol,
+ticket-left-nav [class*="list"],
+ticket-left-nav [class*="views"] {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#freshworks-products-sidebar-container li,
+[class*="side-nav"] li,
+ticket-left-nav li {
+  background-color: transparent !important;
+  border-radius: 4px;
+  margin: 1px 0;
+  padding: 6px 12px 6px 14px;
+  line-height: 1.45;
+  transition: background-color 0.15s ease;
+}
+
+/* Hover on left-nav list items */
+#freshworks-products-sidebar-container li:hover,
+[class*="side-nav"] li:hover,
+ticket-left-nav li:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Active / selected left-nav item — muted blue bg + left accent */
+#freshworks-products-sidebar-container li.active,
+#freshworks-products-sidebar-container li.is-active,
+#freshworks-products-sidebar-container li[class*="active"],
+#freshworks-products-sidebar-container li[class*="selected"],
+#freshworks-products-sidebar-container a.active,
+#freshworks-products-sidebar-container a[class*="active"],
+[class*="side-nav"] li.active,
+[class*="side-nav"] li[class*="active"],
+[class*="side-nav"] li[class*="selected"],
+ticket-left-nav li.active,
+ticket-left-nav li[class*="active"],
+ticket-left-nav li[class*="selected"] {
+  background-color: rgba(102, 178, 255, 0.10) !important;
+  border-left: 3px solid #66b2ff !important;
+  padding-left: 11px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Active item text — slightly brighter */
+#freshworks-products-sidebar-container li.active *,
+#freshworks-products-sidebar-container li[class*="active"] *,
+[class*="side-nav"] li.active *,
+[class*="side-nav"] li[class*="active"] *,
+ticket-left-nav li.active *,
+ticket-left-nav li[class*="active"] * {
+  color: #e8edf4 !important;
+}
+
+/* Left-nav section headers ("Delt", "Standard") */
+#freshworks-products-sidebar-container > [class*="header"],
+#freshworks-products-sidebar-container > [class*="section-title"],
+[class*="side-nav"] > [class*="header"],
+[class*="side-nav"] > [class*="section-title"],
+ticket-left-nav [class*="section-title"] {
+  background-color: transparent !important;
+  color: #7e8898 !important;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 10px 14px 4px;
+}
+
+/* Multi-line items in left-nav: enough breathing room */
+#freshworks-products-sidebar-container li a,
+#freshworks-products-sidebar-container li span,
+[class*="side-nav"] li a,
+[class*="side-nav"] li span,
+ticket-left-nav li a,
+ticket-left-nav li span {
+  line-height: 1.45 !important;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  word-break: break-word;
+}
+
+/* --- Table (light-table) --- */
+
+table {
+  background-color: #111318 !important;
+  border: none !important;
+  border-collapse: collapse !important;
+}
+
+table thead,
+table th,
+.lt-head,
+.lt-head .lt-column {
+  background-color: #111318 !important;
+  color: #6b7a90 !important;
+  border: none !important;
+  border-bottom: 1px solid #252b3a !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  letter-spacing: 0.6px !important;
+}
+
+table th {
+  color: #6b7a90 !important;
+  border: none !important;
+  border-bottom: 1px solid #252b3a !important;
+}
+
+table tbody {
+  background-color: #111318 !important;
+}
+
+tr.lt-row,
+.lt-row {
+  background-color: #111318 !important;
+  color: #eceef2 !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+tr.lt-row:nth-child(even),
+.lt-row:nth-child(even) {
+  background-color: #111318 !important;
+}
+
+tr.lt-row:hover,
+.lt-row:hover,
+tr.lt-row.is-selectable:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  transition: background-color 0.15s ease !important;
+}
+
+tr.lt-row.current__item--active,
+.lt-row.current__item--active {
+  background-color: rgba(124, 196, 240, 0.08) !important;
+  border-left: 3px solid #7cc4f0 !important;
+}
+
+table td,
+.lt-cell {
+  color: #eceef2 !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+/* Kill ALL shadows, backgrounds, borders, and hover effects inside table cells */
+.lt-cell *,
+td > div,
+td > div > div,
+.lt-cell .ember-power-select-trigger,
+.lt-cell .ember-basic-dropdown-trigger,
+.lt-cell [class*="dropdown"],
+.lt-cell [class*="subject"],
+.lt-cell [class*="ticket-subject"],
+td .ember-power-select-trigger,
+td .ember-basic-dropdown-trigger,
+td [class*="dropdown"] {
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
+.lt-cell .ember-power-select-trigger:hover,
+.lt-cell .ember-basic-dropdown-trigger:hover,
+td .ember-power-select-trigger:hover,
+td .ember-basic-dropdown-trigger:hover,
+.lt-cell > div:hover,
+.lt-cell [class*="subject"]:hover,
+td [class*="subject"]:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Restore text colors explicitly */
+.lt-cell a,
+td a {
+  color: #7cc4f0 !important;
+}
+
+.lt-cell .ember-power-select-selected-item,
+td .ember-power-select-selected-item {
+  color: #dce0e8 !important;
+}
+
+.lt-cell .ember-power-select-status-icon,
+td .ember-power-select-status-icon {
+  border-color: #6b7a90 transparent transparent !important;
+}
+
+table tr {
+  background-color: #1e2230 !important;
+}
+
+table tr:nth-child(even) {
+  background-color: #1e2430 !important;
+}
+
+table tr:hover {
+  background-color: #272d3e !important;
+}
+
+/* Freshdesk-specific table classes */
+.tickets__pagination td {
+  background-color: #1e2230 !important;
+}
+
+.list td,
+.list th {
+  background-color: #1e2230 !important;
+  border-bottom-color: #2a3040 !important;
+}
+
+.dew-light-theme .list td,
+.dew-light-theme .list th {
+  background-color: #1e2230 !important;
+  border-bottom-color: #2a3040 !important;
+}
+
+.ember-light-table,
+.ember-light-table table {
+  background-color: #1e2230 !important;
+}
+
+/* Ticket list page content — overrides .dew-light-theme specific rules */
+.dew-light-theme .__module-tickets__tickets-list.inbox-view .page-content,
+.page-content,
+[class*="page-content"] {
+  background-color: #1e2230 !important;
+}
+
+/* Force dark on the entire ticket list module and all children */
+[class*="__module-tickets"],
+[class*="__module-tickets"] > *,
+[class*="tickets-list"],
+[class*="tickets-list"] > *,
+.app-main-wrapper,
+.app-main-wrapper > *,
+.inbox-view,
+.inbox-view > * {
+  background-color: #1e2230 !important;
+}
+
+/* Pagination bar */
+.tickets__pagination,
+.tickets__pagination td,
+.tickets__pagination tr,
+[class*="pagination"],
+[class*="pagination"] td,
+[class*="pagination"] a,
+[class*="pagination"] li,
+[class*="pagination"] span,
+[class*="per-page"],
+[class*="page-nav"] {
+  background-color: #1e2230 !important;
+  color: #b0b6c4 !important;
+  border-color: #2a3040 !important;
+}
+
+[class*="pagination"] a:hover,
+[class*="pagination"] li:hover {
+  background-color: #2a3040 !important;
+  color: #ffffff !important;
+}
+
+[class*="pagination"] .active,
+[class*="pagination"] .active a {
+  background-color: #323a4d !important;
+  color: #ffffff !important;
+}
+
+/* Page number buttons */
+.pagination a,
+.pagination li,
+.pagination span,
+.pagination button,
+[class*="pagination"] a,
+[class*="pagination"] button,
+[class*="page-link"],
+[class*="page-item"],
+.page-link,
+.page-item {
+  background-color: #272d3e !important;
+  color: #b0b6c4 !important;
+  border-color: #363d50 !important;
+}
+
+.pagination a:hover,
+.pagination button:hover,
+[class*="pagination"] a:hover,
+.page-link:hover {
+  background-color: #323a4d !important;
+  color: #ffffff !important;
+}
+
+.pagination .active a,
+.pagination .active span,
+[class*="pagination"] .active a {
+  background-color: #3e4760 !important;
+  color: #ffffff !important;
+}
+
+.pagination .disabled a,
+.pagination .disabled span {
+  background-color: #1e2430 !important;
+  color: #505868 !important;
+}
+
+/* Freshdesk pagination buttons — use gradient, must override background-image */
+.__ui-components__fresh-pagination .pagination__link,
+.pagination__link,
+.pagination-wrapper .pagination__link,
+.pagination__gap,
+.app-icon-btn,
+.btn--secondary {
+  background-image: none !important;
+  background-color: #272d3e !important;
+  color: #b0b6c4 !important;
+  border-color: #363d50 !important;
+}
+
+.__ui-components__fresh-pagination .pagination__link:hover,
+.pagination__link:hover,
+.app-icon-btn:hover {
+  background-image: none !important;
+  background-color: #323a4d !important;
+  color: #ffffff !important;
+}
+
+.__ui-components__fresh-pagination .pagination__link.active,
+.pagination__link.active {
+  background-image: none !important;
+  background-color: #3e4760 !important;
+  color: #ffffff !important;
+}
+
+/* Sortbar / toolbar above the ticket list */
+[class*="sort"],
+[class*="list-header"],
+[class*="breadcrumb"] {
+  background-color: #1e2230 !important;
+  color: #eceef2 !important;
+}
+
+/* Catch remaining borders in main content area */
+.app-main-wrapper div,
+.app-main-wrapper section,
+.app-main-wrapper aside,
+.app-main-wrapper nav,
+.app-main-wrapper header,
+.app-main-wrapper footer {
+  border-color: #222838 !important;
+}
+
+/* Override common Freshdesk background colors used in the list area */
+[style*="background-color: #f7f9fa"],
+[style*="background-color: rgb(247, 249, 250)"],
+[style*="background-color: #ebeff3"],
+[style*="background-color: #edf0f2"],
+[style*="background-color: #f5f7f9"],
+[style*="background-color: #fafbfc"] {
+  background-color: #1e2230 !important;
+}
+
+.hcell,
+.lt-column .hcell,
+.lt-head .hcell {
+  color: #6b7a90 !important;
+  background-color: #111318 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* --- Right filter panel / Breadcrumb area --- */
+
+[class*="header-filter"],
+[class*="breadcrumb__item"] {
+  background-color: #111318 !important;
+  color: #eceef2 !important;
+  border-color: #1c2030 !important;
+}
+
+[class*="filter"] {
+  color: #eceef2 !important;
+}
+
+/* --- Ember dropdowns & action menus --- */
+
+#ember-basic-dropdown-wormhole .ember-basic-dropdown-content,
+.ember-basic-dropdown-content,
+.ember-power-select-dropdown,
+[class*="dropdown"],
+[class*="dropdown-menu"],
+[class*="dropdown-content"],
+[class*="popover"],
+[class*="menu-list"],
+[class*="action-list"],
+ul.dropdown-menu,
+.dropdown-menu {
+  background-color: #1e2230 !important;
+  border-color: #2a3148 !important;
+  color: #eceef2 !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ember-power-select-option,
+.ember-power-select-option--highlight,
+[class*="dropdown"] li,
+[class*="dropdown-menu"] li,
+[class*="dropdown"] a,
+[class*="dropdown-menu"] a,
+.dropdown-menu li,
+.dropdown-menu a,
+.dropdown-menu li a {
+  background-color: #1e2230 !important;
+  color: #dce0e8 !important;
+}
+
+.ember-power-select-option--highlight,
+.ember-power-select-option:hover,
+[class*="dropdown"] li:hover,
+[class*="dropdown"] li.active,
+[class*="dropdown"] li.is-active,
+[class*="dropdown"] a:hover,
+[class*="dropdown-menu"] li:hover,
+[class*="dropdown-menu"] a:hover,
+.dropdown-menu li:hover,
+.dropdown-menu li.active,
+.dropdown-menu a:hover {
+  background-color: rgba(124, 196, 240, 0.10) !important;
+  color: #eceef2 !important;
+}
+
+/* Ember Power Select trigger — flat, modern style */
+.ember-power-select-trigger,
+.ember-basic-dropdown-trigger,
+[class*="power-select-trigger"],
+[class*="dropdown-trigger"] {
+  background-color: #232940 !important;
+  color: #e4e7ee !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 6px !important;
+}
+
+.ember-power-select-trigger:hover,
+.ember-basic-dropdown-trigger:hover {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.ember-power-select-trigger:focus,
+.ember-power-select-trigger:focus-within,
+.ember-power-select-trigger[aria-expanded="true"] {
+  border-color: #7cc4f0 !important;
+  box-shadow: 0 0 0 2px rgba(110, 168, 220, 0.2) !important;
+}
+
+.ember-power-select-selected-item {
+  color: #e4e7ee !important;
+}
+
+.ember-power-select-placeholder {
+  color: #8590aa !important;
+}
+
+.ember-power-select-status-icon {
+  border-color: #8590aa transparent transparent !important;
+}
+
+/* --- Nucleus modals --- */
+
+/* --- Button group split dropdowns (Videresend, Svar etc.) --- */
+.btn-group .dropdown-menu,
+.btn-group ul,
+[class*="split"] .dropdown-menu,
+[class*="split"] ul,
+[class*="reply-action"] ul,
+[class*="reply-action"] .dropdown-menu {
+  background-color: #1e2230 !important;
+  border: 1px solid #2a3148 !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+.btn-group .dropdown-menu li a,
+.btn-group .dropdown-menu li,
+[class*="split"] li a,
+[class*="split"] li {
+  background-color: #1e2230 !important;
+  color: #dce0e8 !important;
+}
+
+.btn-group .dropdown-menu li a:hover,
+.btn-group .dropdown-menu li:hover,
+[class*="split"] li a:hover,
+[class*="split"] li:hover {
+  background-color: rgba(124, 196, 240, 0.10) !important;
+  color: #eceef2 !important;
+}
+
+/* --- Nucleus modals --- */
+
+#nucleus-modal-wormhole .modal,
+#nucleus-modal-wormhole [class*="modal"],
+[class*="modal"] {
+  background-color: #272d3e !important;
+  color: #eceef2 !important;
+  border-color: #363d50 !important;
+}
+
+/* --- Refresh notification bar ("X nye saker" / new tickets available) --- */
+
+.__ui-components__refresh-notification .refresh-notification,
+.__ui-components__refresh-notification .refresh-notification__container,
+[class*="refresh-notification"],
+[class*="refresh-notification"] > * {
+  background: #232940 !important;
+  background-image: none !important;
+  background-color: #232940 !important;
+  color: #eceef2 !important;
+  border-color: #363d50 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.__ui-components__refresh-notification .refresh-notification *,
+[class*="refresh-notification"] *,
+[class*="refresh-notification__container"] * {
+  color: #eceef2 !important;
+  background-image: none !important;
+}
+
+/* --- Nucleus toasts --- */
+
+#nucleus-toast-messages-wormhole *,
+.nucleus-toast-messages * {
+  color: #eceef2 !important;
+}
+
+/* --- Freshworks overlay --- */
+
+#freshworks-overlay-background {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+
+/* ============================================================
+   3. Form elements
+   ============================================================ */
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea, select,
+[class*="input"]:not(.custom-checkbox),
+[class*="search"] input:not([type="checkbox"]),
+[type="text"],
+[type="search"],
+[type="email"],
+[type="number"],
+[type="password"] {
+  background-color: #232940 !important;
+  color: #eceef2 !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 6px;
+  transition: border-color 0.15s ease;
+}
+
+.custom-checkbox,
+.custom-checkbox .input {
+  background-color: transparent !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+[class*="placeholder"],
+.ember-power-select-placeholder {
+  color: #8590aa !important;
+  opacity: 1 !important;
+}
+
+input:focus, textarea:focus, select:focus,
+[class*="input"]:focus-within {
+  border-color: #7cc4f0 !important;
+  outline: none !important;
+}
+
+/* Checkboxes & radio buttons */
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  background-color: transparent !important;
+  border: 1.5px solid #4a5570 !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+  vertical-align: middle !important;
+}
+
+input[type="radio"] {
+  border-radius: 50% !important;
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+  border-color: #7cc4f0 !important;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: #2d5a8a !important;
+  border-color: #7cc4f0 !important;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "" !important;
+  display: block !important;
+  width: 4px !important;
+  height: 8px !important;
+  border: solid #eceef2 !important;
+  border-width: 0 2px 2px 0 !important;
+  transform: rotate(45deg) !important;
+  margin: 1px 0 0 4px !important;
+}
+
+.custom-checkbox input[type="checkbox"] + label::before,
+.dew-light-theme .custom-checkbox input[type="checkbox"] + label::before {
+  border-color: #4a5570 !important;
+  background-color: transparent !important;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label::before,
+.dew-light-theme .custom-checkbox input[type="checkbox"]:checked + label::before {
+  background-color: #2d5a8a !important;
+  border-color: #7cc4f0 !important;
+}
+
+.custom-checkbox input[type="checkbox"] + label::before:hover {
+  border-color: #7cc4f0 !important;
+}
+
+
+/* ============================================================
+   4. Links & Buttons
+   ============================================================ */
+
+a {
+  color: #7cc4f0 !important;
+}
+
+a:hover {
+  color: #a0d8ff !important;
+}
+
+.btn, .button,
+button {
+  color: #eceef2 !important;
+}
+
+
+/* ============================================================
+   5. Scrollbars
+   ============================================================ */
+
+* {
+  scrollbar-color: #3e4760 #111318;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #111318 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3e4760 !important;
+  border-radius: 4px !important;
+  border: 2px solid #111318 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5a6480 !important;
+}
+
+::-webkit-scrollbar-corner {
+  background: #111318 !important;
+}
+
+
+/* ============================================================
+   6. Catch-all: inline style overrides for white/light backgrounds
+   ============================================================ */
+
+[style*="background-color: rgb(255, 255, 255)"],
+[style*="background-color: white"],
+[style*="background-color:#fff"],
+[style*="background-color: #fff"],
+[style*="background-color:#ffffff"],
+[style*="background-color: #ffffff"],
+[style*="background: white"],
+[style*="background: #fff"],
+[style*="background: rgb(255, 255, 255)"],
+[style*="background-color: rgb(255 255 255"] {
+  background-color: #1e2230 !important;
+}
+
+[style*="background: #F3FCF9"],
+[style*="background: #f3fcf9"],
+[style*="background-color: #F3FCF9"],
+[style*="background: rgb(243, 252, 249)"],
+[style*="background: rgb(243,252,249)"] {
+  background: #111318 !important;
+}
+
+[style*="background-color: rgb(245"],
+[style*="background-color: rgb(246"],
+[style*="background-color: rgb(247"],
+[style*="background-color: rgb(248"],
+[style*="background-color: rgb(249"],
+[style*="background-color: rgb(250"],
+[style*="background-color: rgb(251"],
+[style*="background-color: rgb(252"],
+[style*="background-color: rgb(253"],
+[style*="background-color: rgb(254"],
+[style*="background: rgb(243"],
+[style*="background: rgb(244"],
+[style*="background: rgb(245"],
+[style*="background: rgb(246"] {
+  background-color: #1e2430 !important;
+  background: #1e2430 !important;
+}
+
+[style*="color: rgb(0, 0, 0)"],
+[style*="color: #000"],
+[style*="color:#000"],
+[style*="color: rgb(18, 52, 77)"],
+[style*="color: rgb(18 52 77"],
+[style*="color: #12334d"],
+[style*="color: #12334c"],
+[style*="color: #183247"] {
+  color: #eceef2 !important;
+}
+
+
+/* ============================================================
+   7. Miscellaneous
+   ============================================================ */
+
+hr {
+  border-color: #2a3040 !important;
+}
+
+img {
+  opacity: 0.92;
+}
+
+.pagination, [class*="pagination"] {
+  background-color: #1e2230 !important;
+}
+
+.pagination a, [class*="pagination"] a {
+  color: #7cc4f0 !important;
+  background-color: #272d3e !important;
+  border-color: #363d50 !important;
+}
+
+/* Ember view generic containers that might have white bg */
+.ember-view {
+  border-color: #2a3040 !important;
+}
+
+/* Ticket-specific elements */
+[class*="ticket"] {
+  color: #eceef2 !important;
+}
+
+[class*="requester"],
+[class*="agent"],
+[class*="status"],
+[class*="priority"],
+[class*="group"] {
+  color: #eceef2 !important;
+}
+
+/* Star / favorite icon */
+[class*="star"] {
+  color: #90a0b4 !important;
+}
+
+/* Accordion / expandable sections */
+[class*="accordion"] {
+  background-color: #272d3e !important;
+  border-color: #2a3040 !important;
+  color: #eceef2 !important;
+}
+
+/* Quick action bar */
+[class*="quick"] {
+  background-color: #272d3e !important;
+  color: #eceef2 !important;
+}
+
+/* Tags */
+[class*="tag"] {
+  border-color: #363d50 !important;
+}
+
+/* ============================================================
+   Status labels / badges — semi-transparent colored backgrounds
+   ============================================================ */
+
+/* Generic status label base */
+[class*="status-label"],
+[class*="label--"],
+.label,
+.badge,
+[class*="badge"],
+.lt-row [class*="status"] span,
+.lt-cell [class*="status"] span {
+  font-weight: 500 !important;
+}
+
+/* Open / New — teal */
+[class*="status-label"][class*="open"],
+[class*="status-label"][class*="new"],
+[class*="label--"][class*="open"],
+[class*="label--"][class*="new"],
+.status-new,
+.badge-open,
+.label[style*="background-color: rgb(43, 184, 176)"],
+.label[style*="background: rgb(43, 184, 176)"],
+.label[style*="#2bb8b0"],
+[style*="background-color: rgb(43, 184, 176)"],
+[style*="background: #2BB8B0"],
+[style*="background-color: #2BB8B0"] {
+  background-color: rgba(43, 184, 176, 0.15) !important;
+  color: #5ee8df !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+}
+
+/* Pending / Waiting — amber */
+[class*="status-label"][class*="pending"],
+[class*="status-label"][class*="waiting"],
+[class*="label--"][class*="pending"],
+.status-pending,
+.badge-pending,
+.label[style*="background-color: rgb(255, 185, 56)"],
+.label[style*="background: rgb(255, 185, 56)"],
+[style*="background-color: rgb(255, 185, 56)"],
+[style*="background: #FFB938"],
+[style*="background-color: #FFB938"] {
+  background-color: rgba(255, 185, 56, 0.14) !important;
+  color: #ffd080 !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+}
+
+/* Resolved / Closed — gray/neutral */
+[class*="status-label"][class*="resolved"],
+[class*="status-label"][class*="closed"],
+[class*="label--"][class*="resolved"],
+[class*="label--"][class*="closed"],
+.status-resolved,
+.status-closed,
+.badge-resolved,
+.badge-closed,
+.label[style*="background-color: rgb(121, 137, 150)"],
+.label[style*="background: rgb(121, 137, 150)"],
+[style*="background-color: rgb(121, 137, 150)"],
+[style*="background: #798996"],
+[style*="background-color: #798996"] {
+  background-color: rgba(121, 137, 150, 0.15) !important;
+  color: #a8b8c8 !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+}
+
+/* Overdue / Forfalt — red */
+[class*="overdue"],
+[class*="forfalt"],
+[class*="status-label"][class*="overdue"],
+.label[style*="background-color: rgb(205, 38, 41)"],
+.label[style*="background: rgb(205, 38, 41)"],
+.label[style*="background-color: rgb(243, 55, 53)"],
+[style*="background-color: rgb(205, 38, 41)"],
+[style*="background-color: rgb(243, 55, 53)"],
+[style*="background: #cd2629"],
+[style*="background-color: #cd2629"],
+[style*="background: #f33735"],
+[style*="background-color: #f33735"] {
+  background-color: rgba(220, 50, 50, 0.16) !important;
+  color: #ff8080 !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+}
+
+/* Customer responded / Kunde svart — blue */
+[class*="status-label"][class*="customer"],
+[class*="label--"][class*="customer"],
+.label[style*="background-color: rgb(42, 163, 238)"],
+.label[style*="background: rgb(42, 163, 238)"],
+[style*="background-color: rgb(42, 163, 238)"],
+[style*="background: #2AA3EE"],
+[style*="background-color: #2AA3EE"] {
+  background-color: rgba(42, 163, 238, 0.14) !important;
+  color: #7ec8f8 !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+}
+
+/* Priority labels */
+[class*="priority"][class*="urgent"],
+[class*="priority"][class*="high"] {
+  color: #ff8080 !important;
+}
+
+[class*="priority"][class*="medium"] {
+  color: #ffd080 !important;
+}
+
+[class*="priority"][class*="low"] {
+  color: #7ec8f8 !important;
+}
+
+
+/* ============================================================
+   8. Ticket detail page
+   ============================================================ */
+
+/* Conversation / message cards */
+[class*="conversation"],
+[class*="conversation"] > *,
+[class*="ticket-conversation"],
+[class*="ticket-detail"],
+[class*="note-card"],
+[class*="reply-card"],
+[class*="message-card"],
+[class*="fw-card"],
+[class*="card-body"],
+[class*="card-header"],
+[class*="card-footer"] {
+  background-color: #272d3e !important;
+  color: #eceef2 !important;
+  border-color: #222838 !important;
+}
+
+/* Individual conversation entries */
+[class*="conversation"] article,
+[class*="conversation"] .content,
+[class*="conversation"] .body,
+[class*="conversation"] .text,
+[class*="conv"] article,
+[class*="conv"] .content {
+  background-color: #272d3e !important;
+  color: #eceef2 !important;
+}
+
+/* Ticket subject / header area */
+[class*="ticket-subject"],
+[class*="ticket-header"],
+[class*="subject-field"],
+[class*="ticket__subject"],
+[class*="ticket-info"],
+[class*="ticket-meta"] {
+  background-color: #1e2230 !important;
+  color: #eceef2 !important;
+}
+
+/* Properties / details sidebar on ticket detail */
+[class*="properties"],
+[class*="property-panel"],
+[class*="detail-panel"],
+[class*="ticket-properties"],
+[class*="sidebar-detail"],
+[class*="EGENSKAPER"],
+[class*="field-group"],
+[class*="field-value"],
+[class*="field-label"] {
+  background-color: #1e2230 !important;
+  color: #eceef2 !important;
+}
+
+/* Ticket properties panel — specific Freshdesk classes */
+.__module-tickets__ticket-details__properties,
+.__module-tickets__ticket-details__properties.show-props-pane {
+  background-color: #1e2230 !important;
+  border-bottom-color: #252b3a !important;
+}
+
+.__module-tickets__ticket-details__properties .property-submit,
+[class*="property-submit"] {
+  background-color: #1e2230 !important;
+  border-top: 1px solid #252b3a !important;
+}
+
+.__module-tickets__ticket-details__properties .panes-shadow,
+[class*="panes-shadow"] {
+  box-shadow: inset 10px 0 10px -8px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Reply / editor area */
+[class*="reply-editor"],
+[class*="note-editor"],
+[class*="editor-wrapper"],
+[class*="fr-wrapper"],
+[class*="fr-box"],
+[class*="fr-toolbar"],
+[class*="froala"],
+.fr-wrapper,
+.fr-box,
+.fr-toolbar,
+.fr-view {
+  background-color: #272d3e !important;
+  color: #eceef2 !important;
+  border-color: #252b3a !important;
+}
+
+.fr-view {
+  color: #eceef2 !important;
+}
+
+/* Action buttons bar — elevated above content */
+[class*="action-bar"],
+[class*="toolbar"],
+[class*="action-buttons"] {
+  background-color: #252c3e !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Tag pills */
+[class*="tag-item"],
+[class*="tag-pill"],
+[class*="pill"],
+.tag {
+  background-color: #323a4d !important;
+  color: #cdd2de !important;
+  border-color: #444d63 !important;
+}
+
+/* Summary input */
+[class*="summary"],
+[class*="sammendrag"] {
+  background-color: #323a4d !important;
+  color: #eceef2 !important;
+  border-color: #444d63 !important;
+}
+
+/* Activity panel on right side of ticket */
+[class*="activity"],
+[class*="timeline"],
+[class*="history"] {
+  background-color: #1e2230 !important;
+  color: #eceef2 !important;
+}
+
+/* Ticket content wrapper — force dark on all remaining light areas */
+[class*="ticket-detail-page"] *,
+[class*="ticket-view"] *,
+.tickets-detail-page * {
+  border-color: #222838 !important;
+}
+
+/* "Vis flere samtaler" / "Show more conversations" block */
+.ticket-details__item--more,
+.ticket-details__item--more *,
+[class*="more-conversation"],
+[class*="more-conversation"] *,
+[class*="show-more-conv"],
+[class*="show-more-conv"] * {
+  background-color: #111318 !important;
+  background-image: none !important;
+  color: #b0b6c4 !important;
+}
+
+.ticket-details__item--more .more-conversation-icon {
+  background-color: #2d5a8a !important;
+}
+
+.ticket-details__item--more button,
+.ticket-details__item--more [role="button"] {
+  background-color: #232940 !important;
+  border: 1px solid #363d50 !important;
+  color: #dce0e8 !important;
+  border-radius: 20px !important;
+}
+
+/* All divs inside the main wrapper that don't have specific roles */
+.app-main-wrapper div:not([class*="avatar"]):not([class*="badge"]):not([class*="status"]):not([class*="priority"]):not([class*="brand"]):not([class*="btn"]):not([class*="button"]):not([class*="emoji"]):not([class*="color"]) {
+  background-color: inherit;
+}
+
+/* Ticket detail page containers */
+[class*="ticket-detail"],
+[class*="ticket-detail-page"],
+.tickets-detail-page,
+[class*="page-content"],
+[class*="content-main"],
+[class*="main-content"],
+[class*="content-wrapper"],
+[class*="detail-page-content"],
+[class*="ticket-content"] {
+  background-color: #1e2230 !important;
+}
+
+/* Reply bar at bottom of conversation */
+[class*="reply-bar"],
+[class*="reply-wrapper"],
+[class*="response-bar"],
+[class*="editor-bar"] {
+  background-color: #1e2230 !important;
+  border-color: #2a3040 !important;
+}
+
+/* Quoted text, signatures, and inline content in conversations */
+[class*="quoted"],
+blockquote,
+[class*="signature"],
+[class*="gmail_quote"],
+[class*="WordSection"],
+[class*="MsoNormal"],
+.ticket-details__item div[style*="background"],
+[class*="conversation"] div[style*="background"],
+[class*="conversation"] table,
+[class*="conversation"] td {
+  background-color: #232940 !important;
+  background-image: none !important;
+  border-left-color: #444d63 !important;
+  color: #b8bfcc !important;
+}
+
+/* "Oppdater" button area */
+[class*="update-btn"],
+[class*="submit"] {
+  background-color: #2d5a8a !important;
+  color: #ffffff !important;
+}
+
+/* Forwarded / note indicators */
+[class*="forward"],
+[class*="videresendt"],
+[class*="note-type"] {
+  background-color: #272d3e !important;
+  color: #b0b6c4 !important;
+}
+
+
+/* Ticket detail — specific white elements */
+
+#mainactionbar,
+.header-secondary,
+.page-actions,
+.container-fluid {
+  background-color: #252c3e !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.page-actions__left,
+.page-actions__right,
+.reply-bar-wrapper-top,
+.reply-bar-top {
+  background-color: #252c3e !important;
+}
+
+.pull-right,
+.pull-left {
+  background-color: transparent !important;
+}
+
+.agent_collision,
+[class*="collision__agents"] {
+  background-color: transparent !important;
+}
+
+.atwho-view {
+  background-color: #272d3e !important;
+  color: #eceef2 !important;
+  border-color: #363d50 !important;
+}
+
+.atwho-view li:hover,
+.atwho-view .cur {
+  background-color: #323a4d !important;
+}
+
+
+/* ============================================================
+   10. Shadow DOM nuclear overrides
+      Catches ANY remaining light backgrounds inside web components.
+      Applied to all shadow roots via JS injection.
+   ============================================================ */
+
+ticket-top-nav {
+  background-color: #191d27 !important;
+  color: #eceef2 !important;
+}
+
+ticket-left-nav {
+  background-color: #191d27 !important;
+  color: #eceef2 !important;
+}
+
+tickets-right-panel-filter {
+  background-color: #191d27 !important;
+  color: #eceef2 !important;
+}
+
+ticket-notification,
+freshconnect-sidebar {
+  background-color: #191d27 !important;
+  color: #eceef2 !important;
+}
+
+/* Force dark on all divs/sections that might still be white */
+div[class],
+section[class],
+nav[class],
+aside[class],
+header[class],
+footer[class] {
+  --tw-bg-opacity: 1 !important;
+  --tw-text-opacity: 1 !important;
+}
+
+/* Override any element with explicit white/light background via style attr */
+[style*="background"],
+[style*="background-color"] {
+  background-color: inherit;
+}
+
+/* Last resort: force ALL white-ish computed backgrounds dark.
+   Target common container elements that shouldn't be white. */
+div:not([class*="avatar"]):not([class*="badge"]):not([class*="status"]):not([class*="priority"]):not([class*="brand"]):not([class*="btn"]):not([class*="button"]) {
+  --tw-bg-opacity: 1;
+}
